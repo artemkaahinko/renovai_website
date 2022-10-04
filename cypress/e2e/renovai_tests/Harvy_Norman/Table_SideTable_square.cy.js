@@ -1,6 +1,7 @@
-import SelectorsForHN from "../../PageObject/Harvy_Norman"
+import Test_logic from "../../PageObject/Harvy_Norman/test_logic"
+
 describe('Test_HarvyNorman_Table_SideTable_square', () => {
-  const selectorsForHN = new SelectorsForHN;
+  const test_logic = new Test_logic;
     before ('Vist the page',()=>{
         cy.visit(Cypress.config().HN_Table);
         if (!Cypress.config().isCookieBarEnabled){}
@@ -8,11 +9,11 @@ describe('Test_HarvyNorman_Table_SideTable_square', () => {
     it('Visiting HarvyNorman displays the correct title', () => {
       cy.visit(Cypress.config().HN_Table);
       cy.title().should('contain', 'Mainz Lamp Table');
-      selectorsForHN.cookieAccept()
+      test_logic.cookieAccept()
       .click();
-      selectorsForHN.closecbar()
+      test_logic.closecbar()
       .click();
-      selectorsForHN.ifreme()
+      test_logic.ifreme()
       .should('be.visible');
     })
   })

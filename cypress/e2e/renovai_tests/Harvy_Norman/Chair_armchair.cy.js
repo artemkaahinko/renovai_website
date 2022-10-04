@@ -1,6 +1,7 @@
-import SelectorsForHN from "../../PageObject/Harvy_Norman"
+import Test_logic from "../../PageObject/Harvy_Norman/test_logic"
+
 describe('Test_HarvyNorman_Chair_Armchair', () => {
-    const selectorsForHN = new SelectorsForHN;
+    const test_logic = new Test_logic;
     before ('Visit the page',()=>{
       cy.visit(Cypress.config().HN_Chair);
       if (!Cypress.config().isCookieBarEnabled) {}
@@ -8,11 +9,11 @@ describe('Test_HarvyNorman_Chair_Armchair', () => {
       it('Visiting HarvyNorman displays the correct title', () => {
         cy.visit(Cypress.config().HN_Chair);
         cy.title().should('contain', 'Roxy Armchair | Ireland');
-        selectorsForHN.cookieAccept()
+        test_logic.cookieAccept()
         .click();
-        selectorsForHN.closecbar()
+        test_logic.closecbar()
         .click();
-        selectorsForHN.ifreme()
+        test_logic.ifreme()
         .should('be.visible');
       })
     })
